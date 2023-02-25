@@ -45,6 +45,6 @@ model = whisper.load_model("base")
 #loading base model of whisper
 
 result = model.transcribe("speech.mp3")
-#the task of transcribing the audio
+#the task of transcribing the audio 
 
 print(result)
