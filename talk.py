@@ -45,9 +45,9 @@ for item in timestamps:
 audio = AudioFileClip("speech.mp3")
 
 #good:
-merged = CompositeVideoClip([video, textclipdict["text0"], textclipdict["text1"], textclipdict["text2"], textclipdict["text3"], textclipdict["text4"]]).set_duration(audio.duration) #find a way to not have to list them like that
+#merged = CompositeVideoClip([video, textclipdict["text0"], textclipdict["text1"], textclipdict["text2"], textclipdict["text3"], textclipdict["text4"]]).set_duration(audio.duration) #find a way to not have to list them like that
 
-#merged = CompositeVideoClip([video, *textclipdict]).set_duration(audio.duration) #use all dictionary values as arguments python? #doesnt work yet..sumn like that, though
+merged = CompositeVideoClip([video, *textclipdict.values()]).set_duration(audio.duration) #use all dictionary values as arguments python? #doesnt work yet..sumn like that, though
 
 merged.audio = audio
 merged.write_videofile("merged.mp4")
