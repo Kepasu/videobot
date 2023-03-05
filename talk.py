@@ -38,7 +38,7 @@ for item in timestamps:
     
     textclipdict["text{0}".format(i)] = TextClip(item["text"], fontsize = 10, font = "Nexa-Heavy").set_start(item["start"]).set_duration(item["end"] - item["start"]).set_position("center")
     
-    i+=1
+    i += 1
      #dictionary of all textclips
 
 
@@ -50,5 +50,5 @@ audio = AudioFileClip("speech.mp3")
 merged = CompositeVideoClip([video, *textclipdict.values()]).set_duration(audio.duration) #use all dictionary values as arguments python? #doesnt work yet..sumn like that, though
 
 merged.audio = audio
-merged.write_videofile("merged.mp4")
+merged.write_videofile("merged.mp4", codec="libx264", audio_codec='aac')
 
